@@ -1,1 +1,1 @@
-2. parasyta is saro
+2. parasyta is saro(bum)
