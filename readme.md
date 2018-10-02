@@ -1,3 +1,3 @@
-Redagaguotas antrojo vartotojo - Mindės
+Redagaguotas antrojo vartotojo - Miės
 
 1. Parasyta is master
