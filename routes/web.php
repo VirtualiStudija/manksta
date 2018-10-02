@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pagrindinis');
-});
+Route::get('/', 'PostController@index');
+Route::post('/create', 'PostController@store');
+Route::get('/redaguoti/{id}', 'PostController@edit');
+Route::put('/redaguoti/{id}', 'PostController@update');
+Route::delete('/istrinti/{id}', 'PostController@delete');
+
+

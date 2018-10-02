@@ -17,18 +17,38 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Laravel
+            Mankšta
         </div>
 
-        <form action="{{ action('AdminUsersController@store') }}" method="post" enctype="multipart/form-data">
+        @foreach($posts as $post)
+           
+            <h1>{{$post->title}}</h1>
+            <p>{{$post->body}}</p>
+            <a href="redaguoti/{{$post->id}}" style="color: green">Redaguoti</a>
+            
+            <form action="{{ action('PostController@delete', $post->id) }}" method="post" enctype="multipart/form-data">
+                <input name="_method" type="hidden" value="DELETE">
+                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                <button type="submit" style="color: red" class="btn btn-default">Ištrinti</button>
+            </form>
+        
+        @endforeach
+        
+        <form action="{{ action('PostController@store') }}" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for=""></label>
-                <input type="" class="form-control" name="">
+                <label for="">Titulinis</label>
+                <input type="text" class="form-control" name="title">
             </div>
-            <input name="_method" type="hidden" value="PUT">
+            <div class="form-group">
+                <label for="">Tekstas</label>
+                <input type="text" class="form-control" name="body">
+            </div>
+            <input name="_method" type="hidden" value="POST">
             <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Postinti</button>
         </form>
+        
+        
         
     </div>
 </div>
